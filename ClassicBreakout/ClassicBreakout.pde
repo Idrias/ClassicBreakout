@@ -16,9 +16,14 @@ void draw() {
 }
 
 void keyPressed() {
+  // store pressed keys
   if (key < 256) keys[key] = true;
+  
+  // reset game
+  if(key == 'r') setup_vars();
 }
 
 void keyReleased() {
+  // store released keys
   if (key < 256) keys[key] = false;
 }

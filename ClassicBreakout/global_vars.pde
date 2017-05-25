@@ -44,6 +44,6 @@ void setup_vars() {
       game.addObject( new Brick().setPos(x, y) );
     }
   }
-  //////////////////////
+  // End of default level //
   
 }

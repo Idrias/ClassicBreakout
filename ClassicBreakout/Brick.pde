@@ -1,5 +1,6 @@
 class Brick extends GameObject {
   Brick() {
+    // Set default size, position & hp
     setSize(BRICK_SIZE_X, BRICK_SIZE_Y);
     setPos(100, 100);
     hp = 1;

@@ -1,13 +1,31 @@
 abstract class GameObject {
+  // Parent class for all GameObjects
+  
+  // Speed of an object
+  // unit: pixels/millisecond
   PVector speed;
+  
+  // Position of an object
   PVector pos;
+  
+  // Size of an object
   PVector size;
+  
+  // Colors of an Object:
+  // fill & stroke color
   color col_fill;
   color col_stroke;
+  
+  // Time the object was last updated
+  // (millis since program started)
   int lastUpdate = millis();
+  
+  // Hitpoints of an object
   int hp = 2147483647;
   
+  
   GameObject() {
+    // Set default values for all fields
     speed = new PVector(0, 0);
     pos = new PVector(0, 0);
     size = new PVector(0, 0);
@@ -45,15 +63,22 @@ abstract class GameObject {
     this.col_stroke = stroke;
     return this;
   }
+  // End of getters / setters
+  
   
   void simpleMove() {
+    // Move the object without looking for collisions
+    // distance = base speed * time since last update
     pos.add(speed.mult(getUpdateDeltaT()));
+    
+    // constrain position within playarea
     pos.x = constrain(pos.x, 0, width-size.x);
     pos.y = constrain(pos.y, 0, height-size.y);
   }
   
-  void takeHit() {
-    hp--;
+  void takeHit(int strength) {
+    // reduce hp
+    hp -= strength;
   }
   
   abstract void update();
