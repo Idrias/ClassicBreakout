@@ -7,6 +7,7 @@
 void setup() {
   size(600, 700);
   setup_vars();
+  //-> global_vars.pde
 }
 
 void draw() {

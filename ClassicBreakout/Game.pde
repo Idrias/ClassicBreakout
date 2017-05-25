@@ -1,5 +1,4 @@
 class Game {
-
   ArrayList<GameObject> gameObjects;
 
   Game() {
