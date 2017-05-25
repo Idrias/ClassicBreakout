@@ -14,8 +14,12 @@ class Ball extends GameObject {
   void update() {
     // Calculate and execute movement:
     // distance = base speed * time since last update
-    PVector movement = speed.copy().mult(getUpdateDeltaT());
+    int deltaT = getUpdateDeltaT();
+    PVector movement = speed.copy().mult(deltaT);
     pos = pos.add(movement);
+    
+    // lower points for time passed
+    points -= deltaT;
     
     // Check if we hit any bricks or the paddle
     for (GameObject other : game.getObjects()) {
@@ -32,6 +36,7 @@ class Ball extends GameObject {
             // Notify the other object that it just got hit
             // with strength 1 (= 1hp lost)
             other.takeHit(1);
+            points += 3000;
             
             // Revert our move - we shouldn't go into the other object
             pos = pos.sub(movement);

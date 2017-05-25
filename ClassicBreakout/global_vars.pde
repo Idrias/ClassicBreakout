@@ -22,6 +22,8 @@ final static float PADDLE_LENGTH = 80;  // Width of player paddle
 final static float BALL_MAX_X_SPEED = 0.5;  // Maximal absolute horizontal speed of ball
 final static float BALL_MAX_Y_SPEED = 1.6;  // Maximal absolute vertical speed of ball
 final static float BALL_RADIUS = 5;  // Radius of ball
+
+int points = 0; // Punktzahl des Spielers
 //--------------------------------------------------------
 
 

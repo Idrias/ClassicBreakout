@@ -25,6 +25,9 @@ class Game {
         go.draw();
       }
     }
+    
+    fill(255);
+    text("Points: " + points, 20, 20);
   }
 
 
