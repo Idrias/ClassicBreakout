@@ -46,7 +46,6 @@ class Ball extends GameObject {
             }
           }
         }
-        
       }
     }
     

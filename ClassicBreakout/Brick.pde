@@ -1,4 +1,6 @@
 class Brick extends GameObject {
+
+
   Brick() {
     setSize(BRICK_SIZE_X, BRICK_SIZE_Y);
     setPos(100, 100);
@@ -15,7 +17,6 @@ class Brick extends GameObject {
     //rect(pos.x, pos.y, size.x, size.y);
 
 
-  
     beginShape();
     texture(brickSprites[0]);
     vertex(pos.x, pos.y, 0, 0);
@@ -25,4 +26,8 @@ class Brick extends GameObject {
     vertex(pos.x, pos.y, 0, 0);
     endShape();
   }
+}
+
+void brickBurst(int x, int y, int w, int h) {
+
 }

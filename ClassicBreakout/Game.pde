@@ -7,11 +7,15 @@ class Game {
   }
 
   void play() {
-    
+
     for (int i=0; i<gameObjects.size(); i++) {
       GameObject go = gameObjects.get(i);
 
       if (go.getHP() <= 0) {
+        if(go.getClass() == Brick.class){
+          destruct = true;
+          destructPos = go.getPos();
+        }
         gameObjects.remove(i);
         i--;
       } else {
@@ -19,7 +23,6 @@ class Game {
         go.draw();
       }
     }
-    
   }
 
 

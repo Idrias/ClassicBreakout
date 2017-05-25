@@ -16,12 +16,16 @@ final static float PADDLE_LENGTH = 80;
 final static float BALL_MAX_X_SPEED = 0.6;
 final static float BALL_MAX_Y_SPEED = 1.6;
 final static float BALL_RADIUS = 5;
+
+boolean destruct = false;
+int c = 0;
+PVector destructPos;
 //--------------------------------------------------------
 
 
 void setup_vars() {
   ellipseMode(RADIUS);
-  frameRate(144);
+  frameRate(60);
   game = new Game(); 
   keys = new boolean[256];
   for (int i=0; i<keys.length; i++) keys[i] = false;
