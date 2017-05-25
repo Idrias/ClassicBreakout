@@ -1,6 +1,6 @@
 /*
   A game inspired by Atari's Breakout (1976)
-  Rouven Grenz, 2017
+  Rouven Grenz & Adrian Lüneburg, 2017
 */
 
 
