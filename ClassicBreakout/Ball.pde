@@ -1,5 +1,7 @@
 class Ball extends GameObject {
-
+  
+  Trail trail = new Trail();
+  
   Ball() {
     setSize( BALL_RADIUS, BALL_RADIUS );
     setPos(width/2, height-height/4);
@@ -24,6 +26,9 @@ class Ball extends GameObject {
             // HIT!
             other.takeHit();
             
+            
+            
+            
             pos = pos.sub(movement);
             // Determine Hit Direction
             if(pos.x < otherPos.x) { speed.x = -speed.x; }
@@ -34,6 +39,10 @@ class Ball extends GameObject {
             if(other.getClass() == Paddle.class) {
               speed.x = map(pos.x, otherPos.x, otherPos.x + otherSize.x, -BALL_MAX_X_SPEED, BALL_MAX_X_SPEED);
               println(speed.x);
+              bounce();
+            } else {
+              burstPlay.rewind(); 
+              burstPlay.play();
             }
           }
         }
@@ -41,17 +50,28 @@ class Ball extends GameObject {
       }
     }
     
-    if(pos.x > width-size.x ||pos.x < size.x) speed.x = -speed.x;
-    if(pos.y < size.y) speed.y = -speed.y;
+    if(pos.x > width-size.x ||pos.x < size.x) {
+      speed.x = -speed.x;
+      bounce();
+    }
+    if(pos.y < size.y) {
+      speed.y = -speed.y;
+      bounce();
+    }  
     else if(pos.y > height-size.y) hp = 0;
     pos.x = constrain(pos.x, 0, width-size.x);
     pos.y = constrain(pos.y, 0, height-size.y);
   }
-
+  
+  void bounce(){
+     bouncePlay.rewind(); 
+     bouncePlay.play();
+  }
 
   void draw() {
     fill(col_fill);
     stroke(col_stroke);
-    ellipse(pos.x, pos.y, size.x, size.y);
+    trail.disp((int)pos.x, (int)pos.y, 30, 255, 30);
+    //ellipse(pos.x, pos.y, size.x, size.y);
   }
 }

@@ -1,12 +1,18 @@
 /*
   A game inspired by Atari's Breakout (1976)
-  Rouven Grenz & Adrian Lüneburg, 2017
+  Rouven Grenz, 2017
 */
 
+import ddf.minim.*;
 
 void setup() {
-  size(600, 700);
+  size(600, 700, P2D);
   setup_vars();
+  loadSound();
+  loadImages();
+  
+  textureMode(NORMAL);
+  bgmPlay.loop(0);
 }
 
 void draw() {

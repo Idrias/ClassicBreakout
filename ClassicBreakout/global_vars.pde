@@ -26,7 +26,7 @@ void setup_vars() {
   keys = new boolean[256];
   for (int i=0; i<keys.length; i++) keys[i] = false;
   
-    
+   
   game.addObject( new Ball() );
   game.addObject( new Paddle() );
   for(int x=60; x <= width -60 -BRICK_SIZE_X; x+=BRICK_SIZE_X) {
