@@ -31,21 +31,25 @@ void setup_vars() {
   // Processing settings
   ellipseMode(RADIUS);
   frameRate(144);
-  
+
   game = new Game(); 
   keys = new boolean[256];
   for (int i=0; i<keys.length; i++) keys[i] = false;
-  
+
   /* Default Level */
   game.addObject( new Ball() );
   game.addObject( new Paddle() );
-  
+
   // Fill the playarea with bricks
-  for(int x=60; x <= width -60 -BRICK_SIZE_X; x+=BRICK_SIZE_X) {
-    for(int y=100; y <= height/2; y+=BRICK_SIZE_Y) {
-      game.addObject( new Brick().setPos(x, y) );
+  for (int x=60; x <= width -60 -BRICK_SIZE_X; x+=BRICK_SIZE_X) {
+    for (int y=100; y <= height/2; y+=BRICK_SIZE_Y) {
+      // Decide randomly if we want to have a strong or a normal brick
+      // in this position
+      if (random(1) >= 0.5) game.addObject( new StrongBrick().setPos(x, y) );
+      else game.addObject( new Brick().setPos(x, y) );
     }
   }
   // End of default level //
-  
+
+  points = 0;
 }

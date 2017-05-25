@@ -19,7 +19,7 @@ class Ball extends GameObject {
     pos = pos.add(movement);
     
     // lower points for time passed
-    points -= deltaT;
+    if(game.getObjects().size() > 2) points -= deltaT;
     
     // Check if we hit any bricks or the paddle
     for (GameObject other : game.getObjects()) {
